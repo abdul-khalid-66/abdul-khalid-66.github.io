@@ -331,7 +331,7 @@ h3.my-profession{
 .about .about-content .about-text{
     font-size: 24px;
     margin-bottom: 15px;
-    font-weight: 500;
+    font-weight: 300;
     color: var(--text-black-900);
 }
 .about .about-content .about-text h3 span{

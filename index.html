@@ -21,9 +21,53 @@
     <link rel="stylesheet" href="css/skin/color-4.css" class="alternate-style" title="color-4" disabled>
     <link rel="stylesheet" href="css/skin/color-5.css" class="alternate-style" title="color-5" disabled>
     <link rel="stylesheet" href="css/style.switcher.css">
+<style>
+        /* Centered text */
+        .portfolio-img {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            }
 
+        /* Hide all steps by default: */
+        .tab {
+            display: none;
+        }
+        .tab:first-child {
+            display: block;
+        }
 
-    <title>Document</title>
+     
+     /* Make circles that indicate the steps of the form: */
+     .step {
+         height: 15px;
+         width: 15px;
+         margin: 0 2px;
+         background-color: #bbbbbb;
+         border: none;
+         border-radius: 50%;
+         display: inline-block;
+         opacity: 0.5;
+     }
+     
+     /* Mark the active step: */
+     .step.active {
+         opacity: 1;
+     }
+     
+     /* Mark the steps that are finished and valid: */
+     .step.finish {
+         background-color: #4CAF50;
+     }
+     </style>
+
+    <title>My Portfolio</title>
 
 </head>
 

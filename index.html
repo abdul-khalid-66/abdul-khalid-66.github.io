@@ -5,84 +5,125 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- css link  -->
     <link rel="stylesheet" href="css/skin/color-1.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/all.css" type="text/css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
-    
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"> -->
-
-    <!-- Style alternative colors -->
     <link rel="stylesheet" href="css/skin/color-1.css" class="alternate-style" title="color-1" disabled>
     <link rel="stylesheet" href="css/skin/color-2.css" class="alternate-style" title="color-2" disabled>
     <link rel="stylesheet" href="css/skin/color-3.css" class="alternate-style" title="color-3" disabled>
     <link rel="stylesheet" href="css/skin/color-4.css" class="alternate-style" title="color-4" disabled>
     <link rel="stylesheet" href="css/skin/color-5.css" class="alternate-style" title="color-5" disabled>
     <link rel="stylesheet" href="css/style.switcher.css">
-<style>
-        /* Centered text */
-        .portfolio-img {
-            position: relative;
-            text-align: center;
-            color: white;
-        }
-        .centered {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+
+    <style>
+        /* ===== MOBILE NAVBAR ===== */
+        .mobile-navbar { display: none; }
+
+        @media (max-width: 768px) {
+            .aside { display: none; }
+            .mobile-navbar {
+                display: block;
+                position: fixed;
+                top: 0; left: 0;
+                width: 100%;
+                background-color: var(--bg-black-100);
+                color: var(--text-black-900);
+                z-index: 999;
+                border-bottom: 1px solid var(--bg-black-50);
             }
-
-        /* Hide all steps by default: */
-        .tab {
-            display: none;
+            .mobile-navbar-inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 15px 20px;
+            }
+            .mobile-logo a {
+                color: var(--text-black-900);
+                font-size: 24px;
+                font-weight: 700;
+                letter-spacing: 3px;
+                text-decoration: none;
+            }
+            .mobile-logo a span {
+                font-family: 'Clicker Script', cursive;
+                font-size: 36px;
+                color: var(--skin-color);
+            }
+            .mobile-menu-toggle {
+                border: none;
+                background: transparent;
+                color: var(--skin-color);
+                font-size: 24px;
+                cursor: pointer;
+            }
+            .mobile-nav-dropdown {
+                display: none;
+                background-color: var(--bg-black-100);
+                border-top: 1px solid var(--bg-black-50);
+            }
+            .mobile-nav-dropdown.active { display: block; }
+            .mobile-nav-links {
+                list-style: none;
+                padding: 0; margin: 0;
+                display: flex;
+                flex-direction: column;
+            }
+            .mobile-nav-links li a {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 15px 20px;
+                color: var(--text-black-900);
+                text-decoration: none;
+                border-bottom: 1px solid var(--bg-black-50);
+            }
+            .mobile-nav-links li a.active,
+            .mobile-nav-links li a:hover { color: var(--skin-color); }
+            .main-containt { padding-left: 0 !important; padding-top: 70px; }
+            .section { padding: 0 15px; }
+            html { scroll-behavior: smooth; }
         }
-        .tab:first-child {
-            display: block;
-        }
 
-     
-     /* Make circles that indicate the steps of the form: */
-     .step {
-         height: 15px;
-         width: 15px;
-         margin: 0 2px;
-         background-color: #bbbbbb;
-         border: none;
-         border-radius: 50%;
-         display: inline-block;
-         opacity: 0.5;
-     }
-     
-     /* Mark the active step: */
-     .step.active {
-         opacity: 1;
-     }
-     
-     /* Mark the steps that are finished and valid: */
-     .step.finish {
-         background-color: #4CAF50;
-     }
-     </style>
+        /* ===== PORTFOLIO ===== */
+        .portfolio-img { position: relative; overflow: hidden; }
+        .portfolio-img img { width: 100%; display: block; transition: transform 0.3s ease; }
+        .portfolio-item-inner:hover .portfolio-img img { transform: scale(1.05); }
 
-    <title>My Portfolio</title>
+        /* ===== TIMELINE UL ===== */
+        .timeline-text ul { padding-left: 5px; list-style: none; margin-top: 6px; }
+        .timeline-text ul li { margin-bottom: 4px; }
+    </style>
 
+    <title>Abdul Khalid | Portfolio</title>
 </head>
 
 <body>
 
-    <!-- =========main container start   ========= -->
+    <!-- ===== MOBILE NAVBAR ===== -->
+    <div class="mobile-navbar">
+        <div class="mobile-navbar-inner">
+            <div class="mobile-logo"><a href="#"><span>K</span>halid</a></div>
+            <button class="mobile-menu-toggle" type="button" aria-label="Open menu">&#9776;</button>
+        </div>
+        <div class="mobile-nav-dropdown">
+            <ul class="mobile-nav-links">
+                <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fa fa-user"></i> About</a></li>
+                <li><a href="#services"><i class="fa fa-list"></i> Service</a></li>
+                <li><a href="#portfolio"><i class="fa fa-briefcase"></i> Portfolio</a></li>
+                <li><a href="#contact"><i class="fa fa-comments"></i> Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTAINER ===== -->
     <div class="main-container">
-        <!-- ========= Aside start   ========= -->
+
+        <!-- ===== SIDEBAR ===== -->
         <div class="aside">
-            <div class="logo">
-                <a href="#"><span>K</span>han</a>
-            </div>
-            <div class="nav-toggler">
-                <span><i class="fa fa-bars"></i></span>
-            </div>
+            <div class="logo"><a href="#"><span>K</span>halid</a></div>
+            <div class="nav-toggler"><span><i class="fa fa-bars"></i></span></div>
             <ul class="nav">
                 <li><a href="#home" class="active"><i class="fas fa-home"></i>home</a></li>
                 <li><a href="#about"><i class="fa fa-user"></i>About</a></li>
@@ -91,796 +132,535 @@
                 <li><a href="#contact"><i class="fa fa-comments"></i>Contact</a></li>
             </ul>
         </div>
-        <!-- ========= Aside end   ========= -->
-        <!-- ========= main containt start   ========= -->
+
+        <!-- ===== MAIN CONTENT ===== -->
         <div class="main-containt">
 
-
-
+            <!-- HOME -->
             <section class="home section hidden-t" id="home">
-    
-                <div class="container padd-15" >
+                <div class="container padd-15">
                     <div class="row">
                         <div class="home-info padd-15">
-                            <h3 class="hello">Hello my name is <span class="name">Abdul khalid</span></h3>
-                            <h3 class="my-profession">Domain <span class="typing"></span></h3>
-                            <p>As a skilled full-stack developer, I specialize in Web Designing/Development and have extensive experience with HTML/CSS/Bootstrap to create responsive and user-friendly websites. I am proficient in PHP/Laravel for back-end development and well-versed in JavaScript/jQuery/Ajax to build dynamic, interactive web applications. Additionally, I have hands-on experience with Stripe Integration for seamless payment solutions. My goal is to leverage my expertise to create high-performing websites and applications while collaborating effectively with teams to deliver exceptional solutions to clients.</p>
+                            <h3 class="hello">Hello my name is <span class="name">Abdul Khalid</span></h3>
+                            <h3 class="my-profession">I'm a <span class="typing"></span></h3>
+                            <p>Detail-oriented Laravel Developer with hands-on experience in full-stack web development. Skilled in building scalable applications using PHP, Laravel, MySQL, JavaScript, and modern front-end technologies. Strong expertise in MVC architecture, RESTful APIs, Eloquent ORM, and database optimization.</p>
                             <a href="#contact" class="btn hire-me">Hire Me</a>
                         </div>
                         <div class="home-img padd-15">
-                            <img src="image/Khalid.jpg" alt="">
+                            <img src="image/Khalid.jpg" alt="Abdul Khalid">
                         </div>
                     </div>
                 </div>
             </section>
 
+            <!-- ABOUT -->
             <section class="about section hidden-t" id="about">
                 <div class="container">
-                    <!-- row_1 -->
                     <div class="row">
-                        <div class="section-title padd-15">
-                            <h2>About me</h2>
-                        </div>
+                        <div class="section-title padd-15"><h2>About me</h2></div>
                     </div>
-                    <!-- row_2 -->
                     <div class="row">
-
-
                         <div class="about-content padd-15">
+
+                            <!-- About Text -->
                             <div class="row">
                                 <div class="about-text padd-15">
-                                    <h3> I'm Abdul khalid and I'm a <span> Full Stack Web Developer </span></h3>
-                                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        I have successfully completed my four-year degree in Computer Science in 2022. Over the past two years, I have gained extensive experience in the programming field, specializing as a PHP Laravel Developer. During this time, I have worked with multiple companies on diverse projects, including:
-
-                                        <br><br>
-                                        Blog Management System<br>
-                                        E-commerce Platforms<br>
-                                        Learning Management System (LMS)<br>
-                                        Hospital Management System (HMS)<br>
-                                        Car Selling Website<br>
-                                        Riddlesbrood – A platform for organizing various entertainment shows<br>
-                                        Kutub – An online book-selling platform<br>
-                                        Window Cleaning Service Website<br>
-                                        Personal Image and File Gallery
-                                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        My journey has allowed me to work on both backend and frontend development, utilizing technologies like PHP, Laravel, JavaScript, AJAX, jQuery, Bootstrap, and MySQL. I am passionate about building scalable and efficient web applications and continuously enhancing my skills to stay updated with the latest industry trends.
-                                        
-                                        I am eager to bring my expertise and problem-solving skills to new challenges and contribute effectively to any development team.</p>
+                                    <h3>I'm Abdul Khalid and I'm a <span>PHP Laravel Developer</span></h3>
+                                    <p>I have successfully completed my Bachelor's degree in Computer Science in 2022. Over the past few years, I have gained extensive experience specializing as a PHP Laravel Developer. I have worked with multiple companies on diverse projects including Blog Management Systems, E-commerce Platforms, LMS, HMS, Car Selling Websites, and more. I am passionate about building scalable and efficient web applications.</p>
                                 </div>
                             </div>
-                            <!-- start-row_2.1 -->
+
+                            <!-- Personal Info + Skills -->
                             <div class="row">
                                 <div class="personal-info padd-15">
-                                    <!-- start-row_2.1.1 -->
                                     <div class="row">
-                                        <!--                                         <div class="info-item padd-15">
-                                            <p>Brithday : <span>13-06-1996</span></p>
+                                        <div class="info-item padd-15">
+                                            <p>Birthday : <span>1996-06-13</span></p>
                                         </div>
                                         <div class="info-item padd-15">
-                                            <p>age : <span>26</span></p>
-                                        </div> -->
+                                            <p>Age : <span>29</span></p>
+                                        </div>
                                         <div class="info-item padd-15">
-                                            <p>GitHub &nbsp;&nbsp;&nbsp;: <span><a
-                                                        href="https://github.com/abdul-khalid-66"></a>github.com/abdul-khalid-66</span>
-                                            </p>                                       
-<!--                                             {{-- <p>Portfolio : <span>khalidmsd.000webhostapp.com</span></p> --}} -->
-                                            <p>Portfolio &nbsp;&nbsp;: <a href="https://abdul-khalid-66.github.io/"><span>abdul-khalid-66.github.io/</span></a></p>
-                                      
-                                            <p>Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span>abdulkhalidmasood@gmail.com</span></p>
-                                       
-                                            <p >Degree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span>Computer Science</span></p>
-                                       
-                                            <p>Phone &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span>03340673401</span></p>
-                                       
-                                            <p>City &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span>Asadabad colony site area kotri</span></p>
-                                        
+                                            <p>GitHub : <span><a href="https://github.com/abdul-khalid-66" target="_blank">github.com/abdul-khalid-66</a></span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p>Email : <span>abdulkhalidmasood66@gmail.com</span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p>Degree : <span>Computer Science</span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p>Phone : <span>0334-0673401</span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p>City : <span>Karachi, Pakistan</span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
                                             <p>Freelance : <span>Available</span></p>
                                         </div>
                                     </div>
-                                    <!-- end-row_2.1.1 -->
-                                    <!-- start-row_2.1.2 -->
                                     <div class="row">
                                         <div class="buttons padd-15">
-                                            <a href="Abdul Khalid Updated Resume2025.pdf" Download rel='noopener noreferrer' target=''
-                                                class="btn">Download CV</a>
+                                            <a href="resume.html" target="_blank" class="btn">Download CV</a>
                                             <a href="#contact" class="btn hire-me">Hire me</a>
                                         </div>
                                     </div>
-                                    <!-- end-row_2.1.2 -->
                                 </div>
 
+                                <!-- Skills -->
                                 <div class="skill padd-15">
-                                    <!-- start-row_2.1.3 -->
                                     <div class="row">
                                         <div class="skill-item padd-15">
                                             <h5>HTML</h5>
-                                            <div class="progress">
-                                                <div class="progress-in" style="width: 100%;"></div>
-                                                <div class="skill-percent">100%</div>
-                                            </div>
+                                            <div class="progress"><div class="progress-in" style="width:95%;"></div><div class="skill-percent">95%</div></div>
                                         </div>
                                         <div class="skill-item padd-15">
                                             <h5>CSS</h5>
-                                            <div class="progress">
-                                                <div class="progress-in" style="width: 50%;"></div>
-                                                <div class="skill-percent">50%</div>
-                                            </div>
+                                            <div class="progress"><div class="progress-in" style="width:90%;"></div><div class="skill-percent">90%</div></div>
                                         </div>
                                         <div class="skill-item padd-15">
                                             <h5>JavaScript</h5>
-                                            <div class="progress">
-                                                <div class="progress-in" style="width: 60%;"></div>
-                                                <div class="skill-percent">60%</div>
-                                            </div>
+                                            <div class="progress"><div class="progress-in" style="width:80%;"></div><div class="skill-percent">80%</div></div>
                                         </div>
                                         <div class="skill-item padd-15">
                                             <h5>Bootstrap</h5>
-                                            <div class="progress">
-                                                <div class="progress-in" style="width: 80%;"></div>
-                                                <div class="skill-percent">80%</div>
-                                            </div>
+                                            <div class="progress"><div class="progress-in" style="width:85%;"></div><div class="skill-percent">85%</div></div>
                                         </div>
                                         <div class="skill-item padd-15">
                                             <h5>jQuery</h5>
-                                            <div class="progress">
-                                                <div class="progress-in" style="width: 50%;"></div>
-                                                <div class="skill-percent">50%</div>
-                                            </div>
+                                            <div class="progress"><div class="progress-in" style="width:78%;"></div><div class="skill-percent">78%</div></div>
                                         </div>
                                         <div class="skill-item padd-15">
                                             <h5>PHP</h5>
-                                            <div class="progress">
-                                                <div class="progress-in" style="width: 70%;"></div>
-                                                <div class="skill-percent">70%</div>
-                                            </div>
+                                            <div class="progress"><div class="progress-in" style="width:90%;"></div><div class="skill-percent">90%</div></div>
                                         </div>
                                         <div class="skill-item padd-15">
                                             <h5>Laravel</h5>
-                                            <div class="progress">
-                                                <div class="progress-in" style="width: 80%;"></div>
-                                                <div class="skill-percent">80%</div>
-                                            </div>
+                                            <div class="progress"><div class="progress-in" style="width:88%;"></div><div class="skill-percent">88%</div></div>
+                                        </div>
+                                        <div class="skill-item padd-15">
+                                            <h5>MySQL</h5>
+                                            <div class="progress"><div class="progress-in" style="width:85%;"></div><div class="skill-percent">85%</div></div>
+                                        </div>
+                                        <div class="skill-item padd-15">
+                                            <h5>RESTful APIs</h5>
+                                            <div class="progress"><div class="progress-in" style="width:85%;"></div><div class="skill-percent">85%</div></div>
+                                        </div>
+                                        <div class="skill-item padd-15">
+                                            <h5>Git</h5>
+                                            <div class="progress"><div class="progress-in" style="width:75%;"></div><div class="skill-percent">75%</div></div>
                                         </div>
                                     </div>
-                                    <!-- end-row_2.1.3 -->
                                 </div>
-                                
                             </div>
-                                <!-- end-row_2.1 -->
-                                <!-- start-row_2.2 -->
-                                <div class="row">
-                                    <div class="education padd-15">
-                                        <h3 class="title">Education</h3>
-                                        <div class="row">
-                                            <div class="timeline-box padd-15">
-                                                <div class="timeline shadow-dark">
-                                                     
-                                                    
-                                                    <!-- timeline item  -->
-                                                    <div class="timeline-item">
-                                                        <div class="circle-dot"></div>
-                                                        <h3 class="timeline-date">
-                                                            <i class="fa fa-calendar"></i> 2/2023 - 5/2023
-                                                        </h3>
-                                                        <h4 class="timeline-title">Internship</h4>
-                                                        <p class="timeline-text">
 
-                                                        
+                            <!-- Education + Experience -->
+                            <div class="row">
+
+                                <!-- ===== EDUCATION ===== -->
+                                <div class="education padd-15">
+                                    <h3 class="title">Education</h3>
+                                    <div class="row">
+                                        <div class="timeline-box padd-15">
+                                            <div class="timeline shadow-dark">
+
+                                                <!-- Bootcamp -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> Jul 2023 - Sep 2023</h3>
+                                                    <h4 class="timeline-title">Bootcamp – Web Engineering</h4>
+                                                    <p class="timeline-text">
                                                         <ul>
-                                                            <li>
-                                                                <p class="timeline-text">Institute&nbsp;
-                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;HIST (hidaya institute of Science and technology)
-                                                                    </p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">Course
-                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;Web development
-                                                                </p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">
-                                                                    Year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;2023
-                                                                </p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">
-                                                                    Duration &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;4 mounths
-                                                                </p>
-                                                            </li>
+                                                            <li>Certified by : IBA Sukkur</li>
+                                                            <li>Course &nbsp;&nbsp;&nbsp;&nbsp;: Web Engineering / Development</li>
+                                                            <li>Institute &nbsp;: FAST University Karachi</li>
+                                                            <li>Duration &nbsp;&nbsp;: 3 Months</li>
                                                         </ul>
-
-                                                        </p>
-                                                    </div>
-                                                    <!-- timeline item  -->
-                                                    <div class="timeline-item">
-                                                        <div class="circle-dot"></div>
-                                                        <h3 class="timeline-date">
-                                                            <i class="fa fa-calendar"></i> 2019 - 2022
-                                                        </h3>
-                                                        <h4 class="timeline-title">Bachlor in Computer Science</h4>
-                                                        <p class="timeline-text">
-
-                                                        <ul>
-                                                            <li>
-                                                                <p class="timeline-text">
-                                                                    University&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;University
-                                                                    Of Sindh</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">
-                                                                    Degree&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;Computer
-                                                                    Science</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">
-                                                                    Year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;2022
-                                                                </p>
-                                                        </ul>
-                                                        </p>
-                                                    </div>
-                                                    <!-- timeline item  -->
-                                                    <div class="timeline-item">
-                                                        <div class="circle-dot"></div>
-                                                        <h3 class="timeline-date">
-                                                            <i class="fa fa-calendar"></i> 2016 - 2018
-                                                        </h3>
-                                                        <h4 class="timeline-title">Intermediate</h4>
-                                                        <p class="timeline-text">
-                                                        <ul>
-                                                            <li>
-                                                                <p class="timeline-text">
-                                                                    College&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;Worker
-                                                                    Intermediate College</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">Group
-                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;Pre-Engineering
-                                                                </p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">
-                                                                    Year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;2018
-                                                                </p>
-                                                            </li>
-                                                        </ul>
-                                                        
-                                                        </p>
-                                                    </div>
-                                                    <!-- timeline item  -->
-                                                    <div class="timeline-item">
-                                                        <div class="circle-dot"></div>
-                                                        <h3 class="timeline-date">
-                                                            <i class="fa fa-calendar"></i> 2014 - 2016
-                                                        </h3>
-                                                        <h4 class="timeline-title">Matriculation</h4>
-                                                        <p class="timeline-text">
-
-                                                        <ul>
-                                                            <li>
-                                                                <p class="timeline-text">School&nbsp;
-                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;WAPDA
-                                                                    Heigh
-                                                                    School G.T.P.S Kotri</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">Group
-                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;Science
-                                                                </p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">
-                                                                    Year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;2016
-                                                                </p>
-                                                            </li>
-                                                        </ul>
-
-                                                        </p>
-                                                    </div>
-                                                    
-                                                    <div class="timeline-item">
-                                                        <div class="circle-dot"></div>
-                                                        <h3 class="timeline-date">
-                                                            <i class="fa fa-calendar"></i> 2020 - 2023
-                                                        </h3>
-                                                        <h4 class="timeline-title">Shorts Courses</h4>
-                                                        <p class="timeline-text">
-                                                        <ul>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Cetrificate:
-                                                                    Computer Graphic</p>
-                                                            </li>
-                                                            <p class="timeline-text">&nbsp;&nbsp; Certificate:
-                                                                Artificial Intelligence</p>
-                                                            </li>
-                                                            <p class="timeline-text">&nbsp;&nbsp; Certificate: Mobile
-                                                                Application Development</p>
-                                                            </li>
-                                                            <p class="timeline-text">&nbsp;&nbsp; Certificate: Web
-                                                                Development With PHP</p>
-                                                            </li>
-                                                            <p class="timeline-text">&nbsp;&nbsp; Certificate: Search
-                                                                Engion Optimization</p>
-                                                            </li>
-                                                            </li>
-                                                            <p class="timeline-text">&nbsp;&nbsp; Certificate: Web Engineering</p>
-                                                            </li>
-
-                                                            <li>
-
-                                                        </ul>
-
-                                                        </p>
-                                                    </div>
+                                                    </p>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="experience padd-15">
-                                        <h3 class="title">Experience</h3>
-                                        <div class="row">
-                                            <div class="timeline-box padd-15">
-                                                <div class="timeline shadow-dark">
 
-                                                     <!-- timeline item  -->
-                                                    <div class="timeline-item">
-                                                        <div class="circle-dot"></div>
-                                                        <h3 class="timeline-date">
-                                                            <i class="fa fa-calendar"></i> 10/2023 - 2/2024
-                                                        </h3>
-                                                        <h4 class="timeline-title">Internship</h4>
-                                                        <p class="timeline-text">
-
+                                                <!-- Android App Development -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> Jun 2022 - Dec 2022</h3>
+                                                    <h4 class="timeline-title">Android App Development</h4>
+                                                    <p class="timeline-text">
                                                         <ul>
-                                                            <li>
-                                                                <p class="timeline-text">
-                                                                    Software Company&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp; Impetus System (Pvt)</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">
-                                                                    Skill &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;Software Engineer</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">
-                                                                    Duration &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;4 mounths
-                                                                </p>
+                                                            <li>Certified by : Trade Testing Board Sindh (BBSHRRDB)</li>
+                                                            <li>Course &nbsp;&nbsp;&nbsp;&nbsp;: Android Application Developer</li>
+                                                            <li>Institute &nbsp;: Gexton Education</li>
+                                                            <li>Duration &nbsp;&nbsp;: 4 Months</li>
                                                         </ul>
-                                                        </p>
-                                                    </div>
-                                                    <!-- timeline item  -->
-                                                    <div class="timeline-item">
-                                                        <div class="circle-dot"></div>
-                                                        <h3 class="timeline-date">
-                                                            <i class="fa fa-calendar"></i> 7/2023 - 9/2023
-                                                        </h3>
-                                                        <h4 class="timeline-title">Bootcamp</h4>
-                                                        <p class="timeline-text">
-                                                        <ul>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Certefide by : IBA
-                                                                    Sukker <br></p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Course_name : Web
-                                                                    Engineering/Development</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Institute : Fast
-                                                                    Univerisyt karachi</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Duration : 3 Month
-                                                                </p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Complete : jul
-                                                                    2022 To sep 2022</p>
-                                                            </li>
-                                                        </ul>
-                                                        </p>
-                                                    </div>
-                                                    <!-- timeline item  -->
-
-                                                    <div class="timeline-item">
-                                                        <div class="circle-dot"></div>
-                                                        <h3 class="timeline-date">
-                                                            <i class="fa fa-calendar"></i> 2022 - 2022
-                                                        </h3>
-                                                        <h4 class="timeline-title">Android App Development</h4>
-                                                        <p class="timeline-text">
-                                                        <ul>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Certefide by : Trade Testing Board Sindh (BBSHRRDB)</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Course_name :
-                                                                    Android Application Developer</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Institute : Gexton
-                                                                    Education</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Duration : Four
-                                                                    Month</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Complete : June
-                                                                    2022 To December 2022</p>
-                                                            </li>
-                                                        </ul>
-                                                        </p>
-                                                    </div>
-                                                     <!-- timeline item  -->
-                                                    <div class="timeline-item">
-                                                        <div class="circle-dot"></div>
-                                                        <h3 class="timeline-date">
-                                                            <i class="fa fa-calendar"></i> 2021 - 2021
-                                                        </h3>
-                                                        <h4 class="timeline-title">Artificial Intelligence</h4>
-                                                        <p class="timeline-text">
-                                                        <ul>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Certefide by : NAVTTC </p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Course_name:
-                                                                    Artificial Intelligence (Python)
-                                                                <p>
-                                                            <li>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Institute : Gexton
-                                                                    Education</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Duration : Six
-                                                                    Month</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Complete : June
-                                                                    2021 To December 2021 </p>
-                                                            </li>
-                                                        </ul>
-                                                        </p>
-                                                    </div>
-                                                    <!-- timeline item  -->
-                                                    
-                                                    <!-- timeline item  -->
-                                                    <div class="timeline-item">
-                                                        <div class="circle-dot"></div>
-                                                        <h3 class="timeline-date">
-                                                            <i class="fa fa-calendar"></i> 2020 - 2021
-                                                        </h3>
-                                                        <h4 class="timeline-title">Cetrificate of Graphic Designing</h4>
-                                                        <p class="timeline-text">
-                                                        <ul>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Certefide by : NAVTTC  </p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Course_name :
-                                                                    Computer Graphic Designing </p>
-                                                                </i>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Institute :
-                                                                    FURD_VTTC-Jamshoro </p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Duration : Six
-                                                                    Month </p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="timeline-text">&nbsp;&nbsp; Complete :
-                                                                    September 2020 To March 2021 </p>
-                                                            </li>
-                                                        </ul>
-                                                        </p>
-                                                    </div>
-                                                   
-                                                    
-                                                    
+                                                    </p>
                                                 </div>
+
+                                                <!-- Artificial Intelligence -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> Jun 2021 - Dec 2021</h3>
+                                                    <h4 class="timeline-title">Artificial Intelligence (Python)</h4>
+                                                    <p class="timeline-text">
+                                                        <ul>
+                                                            <li>Certified by : NAVTTC</li>
+                                                            <li>Course &nbsp;&nbsp;&nbsp;&nbsp;: Artificial Intelligence (Python)</li>
+                                                            <li>Institute &nbsp;: Gexton Education</li>
+                                                            <li>Duration &nbsp;&nbsp;: 6 Months</li>
+                                                        </ul>
+                                                    </p>
+                                                </div>
+
+                                                <!-- Graphic Designing -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> Sep 2020 - Mar 2021</h3>
+                                                    <h4 class="timeline-title">Certificate of Graphic Designing</h4>
+                                                    <p class="timeline-text">
+                                                        <ul>
+                                                            <li>Certified by : NAVTTC</li>
+                                                            <li>Course &nbsp;&nbsp;&nbsp;&nbsp;: Computer Graphic Designing</li>
+                                                            <li>Institute &nbsp;: FURD_VTTC – Jamshoro</li>
+                                                            <li>Duration &nbsp;&nbsp;: 6 Months</li>
+                                                        </ul>
+                                                    </p>
+                                                </div>
+
+                                                <!-- Bachelor -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2019 - 2022</h3>
+                                                    <h4 class="timeline-title">Bachelor in Computer Science</h4>
+                                                    <p class="timeline-text">
+                                                        <ul>
+                                                            <li>University : University of Sindh</li>
+                                                            <li>Degree &nbsp;&nbsp;&nbsp;: Computer Science</li>
+                                                            <li>Year &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 2022</li>
+                                                        </ul>
+                                                    </p>
+                                                </div>
+
+                                                <!-- Intermediate -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2016 - 2018</h3>
+                                                    <h4 class="timeline-title">Intermediate (Pre-Engineering)</h4>
+                                                    <p class="timeline-text">
+                                                        <ul>
+                                                            <li>College : Worker Intermediate College</li>
+                                                            <li>Group &nbsp;&nbsp;: Pre-Engineering</li>
+                                                            <li>Year &nbsp;&nbsp;&nbsp;&nbsp;: 2018</li>
+                                                        </ul>
+                                                    </p>
+                                                </div>
+
+                                                <!-- Matriculation -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2014 - 2016</h3>
+                                                    <h4 class="timeline-title">Matriculation</h4>
+                                                    <p class="timeline-text">
+                                                        <ul>
+                                                            <li>School : WAPDA High School G.T.P.S Kotri</li>
+                                                            <li>Group &nbsp;: Science</li>
+                                                            <li>Year &nbsp;&nbsp;&nbsp;: 2016</li>
+                                                        </ul>
+                                                    </p>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- end-row_2.2 -->
+
+                                <!-- ===== EXPERIENCE ===== -->
+                                <div class="experience padd-15">
+                                    <h3 class="title">Experience</h3>
+                                    <div class="row">
+                                        <div class="timeline-box padd-15">
+                                            <div class="timeline shadow-dark">
+
+                                                <!-- Job 1 -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> Jun 2025 - Oct 2025</h3>
+                                                    <h4 class="timeline-title">Laravel Full-stack Developer</h4>
+                                                    <p class="timeline-text">Real Versatile Tech – Karachi, Pakistan. Maintained and optimized websites for affiliate marketing, pet-selling, and art portfolio platforms. Developed and integrated RESTful APIs for Android applications. Improved website performance, SEO, and responsiveness.</p>
+                                                </div>
+
+                                                <!-- Job 2 -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> Feb 2025 - May 2025</h3>
+                                                    <h4 class="timeline-title">Software Engineer</h4>
+                                                    <p class="timeline-text">WE4ECOMMERCE – Karachi, Pakistan. Maintained and optimized POS systems and the OPAL Time Care attendance system. Ensured seamless system operation by troubleshooting issues and managing data efficiently.</p>
+                                                </div>
+
+                                                <!-- Job 3 -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> May 2024 - Jan 2025</h3>
+                                                    <h4 class="timeline-title">Laravel Developer</h4>
+                                                    <p class="timeline-text">TAFSOOL TECHNOLOGY – Karachi, Pakistan. Developed and maintained Laravel-based web applications with focus on performance, scalability, and security. Built RESTful APIs, used Blade templates, and managed database migrations following MVC architecture.</p>
+                                                </div>
+
+                                                <!-- Job 4 -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> Sep 2023 - Jan 2024</h3>
+                                                    <h4 class="timeline-title">Intern Software Developer</h4>
+                                                    <p class="timeline-text">IMPETUS SYSTEMS LTD – Hyderabad, Pakistan. Contributed to HR software projects using C#. Assisted in debugging and optimizing existing web applications. Gained hands-on experience in real-world development and Agile collaboration.</p>
+                                                </div>
+
+                                                <!-- Job 5 -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> Jan 2023 - May 2023</h3>
+                                                    <h4 class="timeline-title">PHP Developer Internship</h4>
+                                                    <p class="timeline-text">HIDAYA FOUNDATION – Jamshoro, Pakistan. Completed a 4-month PHP internship enhancing skills in PHP, MySQL, and front-end technologies including HTML, CSS, JavaScript, jQuery, and Bootstrap.</p>
+                                                </div>
+
+                                                <!-- HIST Internship -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> Feb 2023 - May 2023</h3>
+                                                    <h4 class="timeline-title">Internship – Web Development</h4>
+                                                    <p class="timeline-text">
+                                                        <ul>
+                                                            <li>Institute &nbsp;: HIST (Hidaya Institute of Science and Technology)</li>
+                                                            <li>Course &nbsp;&nbsp;&nbsp;: Web Development</li>
+                                                            <li>Duration : 4 Months</li>
+                                                        </ul>
+                                                    </p>
+                                                </div>
+
+                                                <!-- Impetus Internship -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date"><i class="fa fa-calendar"></i> Oct 2023 - Feb 2024</h3>
+                                                    <h4 class="timeline-title">Internship – Software Engineer</h4>
+                                                    <p class="timeline-text">
+                                                        <ul>
+                                                            <li>Company &nbsp;&nbsp;: Impetus System (Pvt)</li>
+                                                            <li>Skill &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Software Engineer</li>
+                                                            <li>Duration : 4 Months</li>
+                                                        </ul>
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
+                </div>
             </section>
-            <!-- ========= About section end   ========= -->
-            <!-- ========= service section start   ========= -->
+
+            <!-- SERVICE -->
             <section class="service section hidden-t" id="services">
                 <div class="container">
                     <div class="row">
-                        <div class="section-title padd-15">
-                            <h2>service</h2>
-                        </div>
+                        <div class="section-title padd-15"><h2>service</h2></div>
                     </div>
                     <div class="row">
-                        <!-- =======service item start ======== -->
-<!--                         {{-- <div class="service-item padd-15">
-                            <div class="service-item-inner">
-                                <div class="icon">
-                                    <i class="fa fa-mobile-alt"></i>
-                                </div>
-                                <h4>Android Development</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim consequuntur
-                                </p>
-                            </div>
-                        </div> --}} -->
-                        <!-- =======service item end ======== -->
-                        <!-- =======service item start ======== -->
+
                         <div class="service-item padd-15">
                             <div class="service-item-inner">
-                                <div class="icon">
-                                    <i class="fa fa-laptop-code"></i>
-                                </div>
+                                <div class="icon"><i class="fa fa-laptop-code"></i></div>
                                 <h4>Web Development</h4>
-                                <p>We specialize in creating dynamic, responsive websites that provide a seamless user experience across all devices. Our team is skilled in the latest technologies, ensuring that your website not only looks great but also performs efficiently.</p>
+                                <p>Dynamic, responsive websites using PHP, Laravel, JavaScript, and Bootstrap that look great and perform efficiently across all devices.</p>
                             </div>
                         </div>
-                        <!-- =======service item end ======== -->
-                        <!-- =======service item start ======== -->
+
                         <div class="service-item padd-15">
                             <div class="service-item-inner">
-                                <div class="icon">
-                                    <i class="fa fa-code"></i>
-                                </div>
+                                <div class="icon"><i class="fa fa-code"></i></div>
                                 <h4>Web Designing</h4>
-                                <p>We offer professional web designing services to make sure your website stands out. Our focus is on clean, modern design that enhances user engagement and ensures easy navigation for your visitors.</p>
+                                <p>Professional web design with clean, modern aesthetics that enhance user engagement and ensure easy navigation for visitors.</p>
                             </div>
                         </div>
+
                         <div class="service-item padd-15">
                             <div class="service-item-inner">
-                                <div class="icon">
-                                    <i class="fa fa-brain"></i> <!-- Updated icon for UI/UX Design -->
-                                </div>
+                                <div class="icon"><i class="fa fa-plug"></i></div>
+                                <h4>RESTful API Development</h4>
+                                <p>Designing and integrating robust APIs for web and mobile applications with proper authentication and documentation.</p>
+                            </div>
+                        </div>
+
+                        <div class="service-item padd-15">
+                            <div class="service-item-inner">
+                                <div class="icon"><i class="fa fa-brain"></i></div>
                                 <h4>UI/UX Design</h4>
-                                <p>We specialize in creating user-centric designs that provide a seamless experience. Our UI/UX design process focuses on understanding user needs, improving accessibility, and delivering intuitive interfaces that are both functional and visually appealing.</p>
+                                <p>User-centric designs focused on understanding user needs, improving accessibility, and delivering intuitive interfaces.</p>
                             </div>
                         </div>
+
                         <div class="service-item padd-15">
                             <div class="service-item-inner">
-                                <div class="icon">
-                                    <i class="fa fa-palette"></i>
-                                </div>
+                                <div class="icon"><i class="fa fa-palette"></i></div>
                                 <h4>Graphic Design</h4>
-                                <p>Our graphic design services focus on bringing your brand to life through visually striking designs. Whether it's logos, marketing materials, or web graphics, we help create a memorable identity for your business.</p>
+                                <p>Bringing brands to life through visually striking designs — logos, marketing materials, and web graphics.</p>
                             </div>
                         </div>
-                        <!-- =======service item end ======== -->
-                        <!-- =======service item start ======== -->
-                       
-                        
-                        
+
                         <div class="service-item padd-15">
                             <div class="service-item-inner">
-                                <div class="icon">
-                                    <i class="fa fa-video"></i>
-                                </div>
-                                <h4>Video Editing</h4>
-                                <p>Our video editing services can transform raw footage into compelling stories. We work with you to refine and enhance your videos, ensuring they captivate your audience with professional quality edits.</p>
+                                <div class="icon"><i class="fa fa-search"></i></div>
+                                <h4>Search Engine Optimization</h4>
+                                <p>Optimizing website speed, responsiveness, and search engine ranking to improve visibility and user experience.</p>
                             </div>
                         </div>
-                        
-                        <!-- =======service item end ======== -->
-                        <!-- =======service item start ======== -->
-                        <div class="service-item padd-15">
-                            <div class="service-item-inner">
-                                <div class="icon">
-                                    <i class="fa fa-search"></i>
-                                </div>
-                                <h4>Search Engion Optimization</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim consequuntur
-                                </p>
-                            </div>
-                        </div>
-                        <!-- =======service item end ======== -->
-                        <!-- =======service item start ======== -->
-<!--                         {{-- <div class="service-item padd-15">
-                            <div class="service-item-inner">
-                                <div class="icon">
-                                    <i class="fa fa-bullhorn"></i>
-                                </div>
-                                <h4>Communication</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim consequuntur
-                                </p>
-                            </div>
-                        </div> --}} -->
-                        <!-- =======service item end ======== -->
+
                     </div>
                 </div>
             </section>
-            <!-- ========= service section end   ========= -->
-            <!-- ========= portfolio section start   ========= -->
+
+            <!-- PORTFOLIO -->
             <section class="portfolio section hidden-t" id="portfolio">
                 <div class="container">
                     <div class="row">
-                        <div class="section-title padd-15">
-                            <h2>Portfolio</h2>
-                        </div>
+                        <div class="section-title padd-15"><h2>Portfolio</h2></div>
                     </div>
                     <div class="row">
-                        <div class="portfolio-heading padd-15">
-                        <h2>My last Projects :</h2>    
-                        </div>
+                        <div class="portfolio-heading padd-15"><h2>My last Projects :</h2></div>
                     </div>
                     <div class="row">
-                    
-                        <!-- ========= portfolio item start   ========= -->
-                        <div class="portfolio-item padd-15">
-                            
-                            <div class="portfolio-item-inner shadow-dark">
-                                    <div class="portfolio-img">
-                                        <a href="https://github.com/abdul-khalid-66/industrial_website.git"><img src="image/large_1.jpg" alt=""></a>
-                                        <div class="centered">Centered</div>
-                                    </div>                                    
-                            </div>
-                        </div>
-                        <!-- ========= portfolio item end   ========= -->
-                        <!-- ========= portfolio item start   ========= -->
-                        <div class="portfolio-item padd-15">
-                            <div class="portfolio-item-inner shadow-dark">
-                                <div class="portfolio-img">                                    
-                                    <a href="https://github.com/abdul-khalid-66/industrial_website.git"><img src="image/large_2.jpg" alt=""></a>
-                                        <div class="centered">Centered</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ========= portfolio item end   ========= -->
-                        <!-- ========= portfolio item start   ========= -->
+
                         <div class="portfolio-item padd-15">
                             <div class="portfolio-item-inner shadow-dark">
                                 <div class="portfolio-img">
-                                    
-                                    <a href="https://github.com/abdul-khalid-66/Login-Registeration-form.git"><img src="image/large_3.jpg" alt=""></a>
-                                        <div class="centered">Centered</div>
+                                    <a href="https://github.com/abdul-khalid-66/industrial_website.git" target="_blank"><img src="image/large_1.jpg" alt="Industrial Website"></a>
                                 </div>
                             </div>
                         </div>
-                        <!-- ========= portfolio item end   ========= -->
-                        <!-- ========= portfolio item start   ========= -->
+
                         <div class="portfolio-item padd-15">
                             <div class="portfolio-item-inner shadow-dark">
                                 <div class="portfolio-img">
-                                    
-                                    <a href="https://github.com/abdul-khalid-66/persolan-portfolio.github.io.git"><img src="image/large_4.jpg" alt=""></a>
-                                        <div class="centered">Centered</div>
+                                    <a href="https://github.com/abdul-khalid-66/industrial_website.git" target="_blank"><img src="image/large_2.jpg" alt="Project 2"></a>
                                 </div>
                             </div>
                         </div>
-                        <!-- ========= portfolio item end   ========= -->
-                        <!-- ========= portfolio item start   ========= -->
+
                         <div class="portfolio-item padd-15">
                             <div class="portfolio-item-inner shadow-dark">
                                 <div class="portfolio-img">
-                                   
-                                    <a href="https://github.com/abdul-khalid-66/Best-MCQs-Website-.git"> <img src="image/large_5.jpg" alt=""></a>
-                                        <div class="centered">Centered</div>
+                                    <a href="https://github.com/abdul-khalid-66/Login-Registeration-form.git" target="_blank"><img src="image/large_3.jpg" alt="Login Registration"></a>
                                 </div>
                             </div>
                         </div>
-                        <!-- ========= portfolio item end   ========= -->
-                        <!-- ========= portfolio item start   ========= -->
+
                         <div class="portfolio-item padd-15">
                             <div class="portfolio-item-inner shadow-dark">
                                 <div class="portfolio-img">
-                                    
-                                    <a href="https://github.com/abdul-khalid-66/industrial_website.git"><img src="image/large_6.jpg" alt=""></a>
-                                        <div class="centered">Centered</div>
+                                    <a href="https://github.com/abdul-khalid-66/persolan-portfolio.github.io.git" target="_blank"><img src="image/large_4.jpg" alt="Portfolio"></a>
                                 </div>
                             </div>
                         </div>
-                        <!-- ========= portfolio item end   ========= -->
-                        
+
+                        <div class="portfolio-item padd-15">
+                            <div class="portfolio-item-inner shadow-dark">
+                                <div class="portfolio-img">
+                                    <a href="https://github.com/abdul-khalid-66/Best-MCQs-Website-.git" target="_blank"><img src="image/large_5.jpg" alt="MCQs Website"></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-item padd-15">
+                            <div class="portfolio-item-inner shadow-dark">
+                                <div class="portfolio-img">
+                                    <a href="https://skoolyst.com" target="_blank"><img src="image/large_6.jpg" alt="Skoolyst"></a>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
-            <!-- ========= portfolio section end   ========= -->
-            <!-- ========= Contact Section start   ========= -->
+
+            <!-- CONTACT -->
             <section class="contact section" id="contact">
                 <div class="container">
                     <div class="row">
-                        <div class="section-title padd-15">
-                            <h2>contact Me</h2>
-                        </div>
+                        <div class="section-title padd-15"><h2>contact Me</h2></div>
                     </div>
-                    <h3 class="contact-title padd-15">Have you any question </h3>
+                    <h3 class="contact-title padd-15">Have you any question?</h3>
                     <h4 class="contact-sbu-title padd-15">I'M AT YOUR SERVICE</h4>
                     <div class="row">
-                        <!-- ========= contact info item start   ========= -->
                         <div class="contact-info-item padd-15">
                             <div class="icon"><i class="fa fa-phone"></i></div>
-                            <h4>call us on </h4>
-                            <p>+92 3443457961</p>
+                            <h4>Call Us On</h4>
+                            <p>0334-0673401</p>
                         </div>
-
-                        <!-- ========= contact info item end   ========= -->
-                        <!-- ========= contact info item start   ========= -->
                         <div class="contact-info-item padd-15">
                             <div class="icon"><i class="fa fa-map-marker-alt"></i></div>
-                            <h4>Address </h4>
-                            <p>Kotri (jamshoro)</p>
+                            <h4>Office</h4>
+                            <p>Karachi, Pakistan</p>
                         </div>
-
-                        <!-- ========= contact info item end   ========= -->
-                        <!-- ========= contact info item start   ========= -->
                         <div class="contact-info-item padd-15">
                             <div class="icon"><i class="fa fa-envelope"></i></div>
-                            <h4>Email </h4>
+                            <h4>Email</h4>
                             <p>abdulkhalidmasood66@gmail.com</p>
                         </div>
-
-                        <!-- ========= contact info item end   ========= -->
-                        <!-- ========= contact info item start   ========= -->
                         <div class="contact-info-item padd-15">
                             <div class="icon"><i class="fa fa-globe-europe"></i></div>
-                            <h4>website </h4>
-                            <p>www.khalidmsd.com</p>
+                            <h4>Website</h4>
+                            <p><a href="https://www.khalidmsd.com" target="_blank">www.khalidmsd.com</a></p>
                         </div>
-
-                        <!-- ========= contact info item end   ========= -->
-
                     </div>
+
                     <h3 class="contact-title padd-15">SEND ME AN EMAIL</h3>
                     <h4 class="contact-sbu-title padd-15">I'M VERY RESPONSIVE TO MESSAGES</h4>
 
-                    <!-- ========= contact Form start   ========= -->
                     <div class="row">
                         <div class="contact-form padd-15">
-                            <div class="row">
-                                <div class="form-item col-6 padd-15">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Name">
+                            <form action="mailto:abdulkhalidmasood66@gmail.com" method="post" enctype="text/plain">
+                                <div class="row">
+                                    <div class="form-item col-6 padd-15">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="Name" placeholder="Name">
+                                        </div>
+                                    </div>
+                                    <div class="form-item col-6 padd-15">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" name="Email" placeholder="Email">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-item col-6 padd-15">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email">
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="Subject" placeholder="Subject">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-item col-12 padd-15">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Subject">
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            <textarea name="Message" class="form-control" placeholder="Message"></textarea>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-item col-12 padd-15">
-                                    <div class="form-group">
-                                        <textarea name="" class="form-control " id="" placeholder="Message"></textarea>
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <button type="submit" class="btn">Send Message</button>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-item col-12 padd-15">
-                                    <button type="submit" class="btn">Send Message</button>
-                                </div>
-                            </div>
-
+                            </form>
                         </div>
                     </div>
-                    <!-- ========= contact Form end   ========= -->
                 </div>
             </section>
-            <!-- ========= Contact Section end   ========= -->
-        </div>
-        <!-- ========= main containt end   ========= -->
 
+        </div>
     </div>
-    <!-- ========= main container end   ========= -->
-    <!-- ========= Style Switcher start   ========= -->
+
+    <!-- STYLE SWITCHER -->
     <div class="style-switcher">
-        <div class="style-switcher-toggler s-icon">
-            <i class="fas fa-cog fa-spin"></i>
-        </div>
-        <div class="day-night s-icon">
-            <i class="fas"></i>
-        </div>
+        <div class="style-switcher-toggler s-icon"><i class="fas fa-cog fa-spin"></i></div>
+        <div class="day-night s-icon"><i class="fas"></i></div>
         <h4>Theme Colors</h4>
         <div class="colors">
             <span class="color-1" onclick="setActiveStyle('color-1')"></span>
@@ -890,19 +670,28 @@
             <span class="color-5" onclick="setActiveStyle('color-5')"></span>
         </div>
     </div>
-    <!-- ========= Style Switcher end   ========= -->
 
-
-
-
-
-    <!-- javaScript link  -->
-<!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-
-    <script src="js/Script.js">    </script>
+    <script src="js/Script.js"></script>
     <script src="js/style-switcher.js"></script>
 
-</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileDropdown = document.querySelector('.mobile-nav-dropdown');
+            const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+            if (menuToggle && mobileDropdown) {
+                menuToggle.addEventListener('click', function () {
+                    mobileDropdown.classList.toggle('active');
+                });
+            }
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileDropdown.classList.remove('active');
+                });
+            });
+        });
+    </script>
 
+</body>
 </html>

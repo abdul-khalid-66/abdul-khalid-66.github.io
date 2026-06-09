@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Khalid – Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --red:    #e74c3c;
+            --dark:   #1a1a2e;
+            --mid:    #2d2d44;
+            --light:  #f8f9fa;
+            --gray:   #6c757d;
+            --border: #e0e0e0;
+            --white:  #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #eef0f4;
+            color: var(--dark);
+            padding: 30px 15px;
+        }
+
+        /* ── PRINT BUTTON (hidden on print) ── */
+        .print-bar {
+            max-width: 900px;
+            margin: 0 auto 18px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        .print-bar button {
+            background: var(--red);
+            color: #fff;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: .5px;
+            transition: background .2s;
+        }
+        .print-bar button:hover { background: #c0392b; }
+        .print-tip {
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            border-radius: 6px;
+            padding: 9px 16px;
+            font-size: 13px;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* ── RESUME CARD ── */
+        .resume {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0,0,0,.13);
+        }
+
+        /* ── HEADER ── */
+        .header {
+            background: var(--dark);
+            padding: 28px 36px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+        .header-photo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--red);
+            flex-shrink: 0;
+        }
+        .header-photo-placeholder {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: var(--mid);
+            border: 4px solid var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: var(--red);
+            flex-shrink: 0;
+        }
+        .header-info h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--white);
+            letter-spacing: .5px;
+            line-height: 1.1;
+        }
+        .header-info h1 span { color: var(--red); }
+        .header-info .title {
+            font-size: 15px;
+            color: var(--red);
+            font-weight: 600;
+            margin: 6px 0 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px 14px;
+            margin-top: 2px;
+        }
+        .contact-row a,
+        .contact-row span {
+            color: #e0e6f0 !important;
+            font-size: 12.5px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .contact-row a:hover { color: var(--red) !important; }
+        .contact-row i { color: var(--red); font-size: 11px; flex-shrink: 0; }
+
+        /* ── BODY LAYOUT ── */
+        .body {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+        }
+
+        /* ── SIDEBAR ── */
+        .sidebar {
+            background: var(--light);
+            padding: 32px 24px;
+            border-right: 1px solid var(--border);
+        }
+
+        /* ── MAIN COLUMN ── */
+        .main {
+            padding: 32px 36px;
+        }
+
+        /* ── SECTION TITLES ── */
+        .sec-title {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--red);
+            border-bottom: 2px solid var(--red);
+            padding-bottom: 5px;
+            margin-bottom: 16px;
+        }
+
+        /* ── SKILLS ── */
+        .skill-block { margin-bottom: 24px; }
+        .skill-item { margin-bottom: 10px; }
+        .skill-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: var(--dark);
+        }
+        .skill-label span { color: var(--gray); font-size: 12px; }
+        .bar-track {
+            height: 5px;
+            background: var(--border);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .bar-fill {
+            height: 100%;
+            background: var(--red);
+            border-radius: 3px;
+        }
+
+        /* ── SIDEBAR INFO ── */
+        .info-block { margin-bottom: 24px; }
+        .info-row {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+        .info-row .label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 2px;
+        }
+        .info-row .value {
+            font-size: 13px;
+            color: var(--dark);
+            word-break: break-all;
+        }
+        .info-row .value a { color: var(--red); text-decoration: none; }
+
+        /* ── CERTS / TAGS ── */
+        .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .tag {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 3px 8px;
+            font-size: 11px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        /* ── TIMELINE ── */
+        .timeline { margin-bottom: 28px; }
+        .tl-item {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 20px;
+        }
+        .tl-item::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 6px;
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--red);
+        }
+        .tl-item::after {
+            content: '';
+            position: absolute;
+            left: 3.5px; top: 14px;
+            width: 1px;
+            height: calc(100% + 4px);
+            background: var(--border);
+        }
+        .tl-item:last-child::after { display: none; }
+        .tl-date {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--red);
+            letter-spacing: .5px;
+            margin-bottom: 2px;
+        }
+        .tl-role {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1px;
+        }
+        .tl-company {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 5px;
+            font-style: italic;
+        }
+        .tl-desc {
+            font-size: 14.5px;
+            color: #444;
+            line-height: 1.6;
+        }
+        .tl-desc ul {
+            padding-left: 14px;
+            margin-top: 4px;
+        }
+        .tl-desc ul li { margin-bottom: 2px; }
+
+        /* ── SUMMARY ── */
+        .summary {
+            font-size: 15.5px;
+            color: #444;
+            line-height: 1.75;
+            margin-bottom: 28px;
+            padding: 16px 20px;
+            background: var(--light);
+            border-left: 3px solid var(--red);
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* ── PRINT STYLES ── */
+        @page {
+            margin: 8mm;
+            size: A4;
+        }
+
+        @media print {
+            html, body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            body { background: #fff; padding: 0; font-size: 12px; }
+            .print-bar { display: none !important; }
+            .resume { box-shadow: none; border-radius: 0; max-width: 100%; }
+
+            /* Tighter header */
+            .header { padding: 20px 28px; gap: 20px; }
+            .header-photo, .header-photo-placeholder { width: 80px; height: 80px; }
+            .header-info h1 { font-size: 24px; }
+            .header-info .title { font-size: 12px; margin: 4px 0 8px; }
+            .contact-row a, .contact-row span { font-size: 11px; }
+
+            /* Tighter body */
+            .body { grid-template-columns: 200px 1fr; }
+            .sidebar { padding: 16px 14px; }
+            .main { padding: 16px 22px; }
+
+            /* Tighter summary */
+            .summary { padding: 10px 14px; font-size: 12px; margin-bottom: 16px; line-height: 1.55; }
+
+            /* Tighter timeline */
+            .tl-item { margin-bottom: 10px; padding-left: 14px; }
+            .tl-date { font-size: 10px; }
+            .tl-role { font-size: 14.5px; }
+            .tl-company { font-size: 11px; margin-bottom: 3px; }
+            .tl-desc { font-size: 11.5px; line-height: 1.5; }
+
+            /* Tighter skills */
+            .skill-item { margin-bottom: 7px; }
+            .skill-label { font-size: 11.5px; }
+            .bar-track { height: 4px; }
+
+            /* Tighter section titles */
+            .sec-title { font-size: 10px; margin-bottom: 10px; padding-bottom: 4px; }
+            .skill-block { margin-bottom: 16px; }
+            .info-block { margin-bottom: 16px; }
+            .info-row { margin-bottom: 7px; }
+            .info-row .label { font-size: 9px; }
+            .info-row .value { font-size: 11.5px; }
+            .tag { font-size: 10px; padding: 2px 6px; }
+
+            /* Page break control */
+            .sec-title { page-break-after: avoid; break-after: avoid; }
+            .tl-item { page-break-inside: avoid; break-inside: avoid; }
+            .education-section { page-break-before: always; break-before: always; }
+
+            a { color: inherit !important; text-decoration: none !important; }
+        }
+
+        @media (max-width: 680px) {
+            .header { flex-direction: column; text-align: center; padding: 28px 20px; gap: 16px; }
+            .contact-row { justify-content: center; }
+            .body { grid-template-columns: 1fr; }
+            .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
+            .main { padding: 24px 20px; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Print Button -->
+    <div class="print-bar">
+        <div class="print-tip">
+            💡 <strong>Tip:</strong> In print dialog → <em>More settings</em> → turn OFF <strong>"Headers and footers"</strong> to hide date/URL
+        </div>
+        <button onclick="window.print()"><i class="fa fa-download"></i> &nbsp;Download / Print PDF</button>
+    </div>
+
+    <div class="resume">
+
+        <!-- ── HEADER ── -->
+        <div class="header">
+            <img src="image/Khalid.jpg" alt="Abdul Khalid" class="header-photo"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="header-photo-placeholder" style="display:none;">
+                <i class="fa fa-user"></i>
+            </div>
+            <div class="header-info">
+                <h1><span>Abdul</span> Khalid</h1>
+                <p class="title">PHP Laravel Developer</p>
+                <div class="contact-row">
+                    <span><i class="fa fa-phone"></i>&nbsp;0334-0673401</span>
+                    <span><i class="fa fa-envelope"></i>&nbsp;abdulkhalidmasood66@gmail.com</span>
+                    <span><i class="fa fa-map-marker-alt"></i>&nbsp;Karachi, Pakistan</span>
+                    <a href="https://github.com/abdul-khalid-66" target="_blank"><i class="fab fa-github"></i>&nbsp;github.com/abdul-khalid-66</a>
+                    <a href="https://abdul-khalid-66.github.io" target="_blank"><i class="fa fa-globe"></i>&nbsp;abdul-khalid-66.github.io</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── BODY ── -->
+        <div class="body">
+
+            <!-- ── SIDEBAR ── -->
+            <div class="sidebar">
+
+                <!-- Skills -->
+                <div class="skill-block">
+                    <div class="sec-title">Skills</div>
+
+                    <div class="skill-item">
+                        <div class="skill-label">HTML <span>95%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-label">CSS <span>90%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-label">JavaScript <span>80%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-label">Bootstrap <span>85%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-label">jQuery <span>78%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-label">PHP <span>90%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-label">Laravel <span>88%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-label">MySQL <span>85%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-label">RESTful APIs <span>85%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-label">Git <span>75%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+                    </div>
+                </div>
+
+                <!-- Personal Info -->
+                <div class="info-block">
+                    <div class="sec-title">Personal Info</div>
+                    <div class="info-row">
+                        <span class="label">Birthday</span>
+                        <span class="value">13 June 1996</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Age</span>
+                        <span class="value">29 Years</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Degree</span>
+                        <span class="value">Bachelor in Computer Science</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Freelance</span>
+                        <span class="value" style="color:var(--red); font-weight:600;">Available</span>
+                    </div>
+                </div>
+
+                <!-- Certificates -->
+                <div class="info-block">
+                    <div class="sec-title">Certificates</div>
+                    <div class="tags">
+                        <span class="tag">Computer Graphics</span>
+                        <span class="tag">Artificial Intelligence</span>
+                        <span class="tag">Mobile App Dev</span>
+                        <span class="tag">Web Dev with PHP</span>
+                        <span class="tag">SEO</span>
+                        <span class="tag">Web Engineering</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ── MAIN COLUMN ── -->
+            <div class="main">
+
+                <!-- Summary -->
+                <div class="summary">
+                    Detail-oriented Laravel Developer with hands-on experience in full-stack web development. Skilled in building scalable applications using PHP, Laravel, MySQL, JavaScript, and modern front-end technologies. Strong expertise in MVC architecture, RESTful APIs, Eloquent ORM, and database optimization. Proven ability to troubleshoot, debug, and deploy efficient solutions across diverse industries.
+                </div>
+
+                <!-- Experience -->
+                <div class="sec-title">Experience</div>
+                <div class="timeline">
+
+                    <div class="tl-item">
+                        <div class="tl-date">Jun 2025 – Oct 2025</div>
+                        <div class="tl-role">Laravel Full-stack Developer</div>
+                        <div class="tl-company">Real Versatile Tech – Karachi, Pakistan</div>
+                        <div class="tl-desc">Maintained and optimized websites including affiliate marketing, pet-selling, and art portfolio platforms. Developed and integrated RESTful APIs for Android applications. Improved performance, SEO, and responsiveness.</div>
+                    </div>
+
+                    <div class="tl-item">
+                        <div class="tl-date">Feb 2025 – May 2025</div>
+                        <div class="tl-role">Software Engineer</div>
+                        <div class="tl-company">WE4ECOMMERCE – Karachi, Pakistan</div>
+                        <div class="tl-desc">Maintained and optimized POS systems and OPAL Time Care attendance system. Ensured seamless operation by troubleshooting issues and managing data efficiently.</div>
+                    </div>
+
+                    <div class="tl-item">
+                        <div class="tl-date">May 2024 – Jan 2025</div>
+                        <div class="tl-role">Laravel Developer</div>
+                        <div class="tl-company">TAFSOOL TECHNOLOGY – Karachi, Pakistan</div>
+                        <div class="tl-desc">Developed and maintained Laravel-based web apps focused on performance and security. Built RESTful APIs, used Blade templates, managed database migrations following MVC architecture.</div>
+                    </div>
+
+                    <div class="tl-item">
+                        <div class="tl-date">Sep 2023 – Jan 2024</div>
+                        <div class="tl-role">Intern Software Developer</div>
+                        <div class="tl-company">IMPETUS SYSTEMS LTD – Hyderabad, Pakistan</div>
+                        <div class="tl-desc">Contributed to HR software projects using C#. Assisted in debugging and optimizing existing web applications. Gained hands-on experience in real-world development and Agile collaboration.</div>
+                    </div>
+
+                    <div class="tl-item">
+                        <div class="tl-date">Jan 2023 – May 2023</div>
+                        <div class="tl-role">PHP Developer Internship</div>
+                        <div class="tl-company">HIDAYA FOUNDATION – Jamshoro, Pakistan</div>
+                        <div class="tl-desc">4-month PHP internship enhancing skills in PHP, MySQL, HTML, CSS, JavaScript, jQuery, and Bootstrap.</div>
+                    </div>
+
+                </div>
+
+                <!-- Education -->
+                <div class="education-section">
+                <div class="sec-title">Education</div>
+                <div class="timeline">
+
+                    <div class="tl-item">
+                        <div class="tl-date">2019 – 2022</div>
+                        <div class="tl-role">Bachelor in Computer Science</div>
+                        <div class="tl-company">University of Sindh</div>
+                    </div>
+
+                    <div class="tl-item">
+                        <div class="tl-date">Jul 2023 – Sep 2023</div>
+                        <div class="tl-role">Bootcamp – Web Engineering</div>
+                        <div class="tl-company">FAST University Karachi &nbsp;·&nbsp; Certified by IBA Sukkur</div>
+                        <div class="tl-desc">3-month intensive web engineering and development program.</div>
+                    </div>
+
+                    <div class="tl-item">
+                        <div class="tl-date">Jun 2022 – Dec 2022</div>
+                        <div class="tl-role">Android App Development</div>
+                        <div class="tl-company">Gexton Education &nbsp;·&nbsp; Certified by Trade Testing Board Sindh</div>
+                    </div>
+
+                    <div class="tl-item">
+                        <div class="tl-date">Jun 2021 – Dec 2021</div>
+                        <div class="tl-role">Artificial Intelligence (Python)</div>
+                        <div class="tl-company">Gexton Education &nbsp;·&nbsp; Certified by NAVTTC</div>
+                    </div>
+
+                    <div class="tl-item">
+                        <div class="tl-date">Sep 2020 – Mar 2021</div>
+                        <div class="tl-role">Graphic Designing Certificate</div>
+                        <div class="tl-company">FURD_VTTC Jamshoro &nbsp;·&nbsp; Certified by NAVTTC</div>
+                    </div>
+
+                    <div class="tl-item">
+                        <div class="tl-date">2016 – 2018</div>
+                        <div class="tl-role">Intermediate (Pre-Engineering)</div>
+                        <div class="tl-company">Worker Intermediate College, Jamshoro</div>
+                    </div>
+
+                    <div class="tl-item">
+                        <div class="tl-date">2014 – 2016</div>
+                        <div class="tl-role">Matriculation (Science)</div>
+                        <div class="tl-company">WAPDA High School G.T.P.S Kotri</div>
+                    </div>
+
+                </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -573,11 +573,25 @@ color: #ffffffff;
 .portfolio .portfolio-heading{
     flex: 0 0 100%;
     max-width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 .portfolio .portfolio-heading h2{
-    color:  var(--text-black-900);
-    font-weight: 500;
+    font-size: 26px;
+    color: var(--text-black-900);
+    font-weight: 600;
+    position: relative;
+    padding-left: 18px;
+}
+.portfolio .portfolio-heading h2::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 28px;
+    background-color: var(--skin-color);
+    border-radius: 2px;
 }
 .portfolio .portfolio-item{
     flex: 0 0 33.33%;
@@ -585,14 +599,62 @@ color: #ffffffff;
     margin-bottom: 30px;
 }
 .portfolio .portfolio-item-inner{
-    border: 6px solid var(--bg-black-100);
+    background-color: var(--bg-black-100);
+    border: 1px solid var(--bg-black-50);
     border-radius: 10px;
     overflow: hidden;
-    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
 }
-.portfolio .portfolio-item-inner .portfolio-img img{
+.portfolio .portfolio-item-inner:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(48, 46, 77, 0.12);
+}
+.portfolio .portfolio-img{
+    position: relative;
+    overflow: hidden;
+}
+.portfolio .portfolio-img img{
     width: 100%;
     display: block;
+    transition: transform 0.3s ease;
+}
+.portfolio .portfolio-item-inner:hover .portfolio-img img{
+    transform: scale(1.05);
+}
+.portfolio .portfolio-info{
+    padding: 20px 18px 22px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.portfolio .portfolio-info .portfolio-title{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-black-900);
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+.portfolio .portfolio-info .portfolio-desc{
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--text-black-700);
+    margin-bottom: 16px;
+    flex: 1;
+}
+.portfolio .portfolio-info .portfolio-link{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--skin-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.3s ease;
+}
+.portfolio .portfolio-info .portfolio-link:hover{
+    gap: 10px;
 }
 
 

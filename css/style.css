@@ -497,6 +497,19 @@ h3.my-profession{
     text-align: justify;
     color: var(--text-black-700);
 }
+.about .about-content .timeline .timeline-text ul,
+.about .about-content .timeline .timeline-item > ul{
+    padding-left: 5px;
+    list-style: none;
+    margin-top: 6px;
+}
+.about .about-content .timeline .timeline-text ul li,
+.about .about-content .timeline .timeline-item > ul li{
+    margin-bottom: 4px;
+    line-height: 25px;
+    font-size: 16px;
+    color: var(--text-black-700);
+}
 /* About end */
 /* Service start */
 .service .container{

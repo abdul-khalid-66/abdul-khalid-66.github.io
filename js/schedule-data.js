@@ -38,6 +38,14 @@
 const scheduleData = [
 
     {
+        date: "2026-06-19",
+        category: "Skoolyst Task",
+        title: "Skoolyst Social Media Content Creation",
+        description: " Created/Scheduled engaging social media content for Skoolyst posts, to promote our brand and connect with our audience across Facebook , Instagram, and LinkedIn.",
+        tags: ["New Post", "Social Media", "Skoolyst"],
+        link: { label: "Facebook", url: "https://www.facebook.com/skoolyst" }
+    },
+    {
         date: "2026-06-20",
         category: "Learning",
         title: "Docker Fundamentals",

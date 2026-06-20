@@ -52,6 +52,14 @@ const scheduleData = [
         description: "Watched a comprehensive introduction to Docker on YouTube, covering why it is essential for modern software development and how it solves the common \"it works on my machine\" problem. Learned the core concepts of images, containers, and how Docker keeps environments consistent across development and production.",
         tags: ["Docker", "DevOps", "YouTube"],
         link: { label: "Watch on YouTube", url: "https://www.youtube.com/watch?v=H8Lyj2D_cWo&t=164s" }
+    },
+    {
+        date: "2026-06-21",
+        category: "Skoolyst Task",
+        title: "Tawk.to Chat Widget Setup",
+        description: "Implemented the Tawk.to live chat widget on the Skoolyst website to enhance customer support and engagement. Configured the widget's appearance and automated greetings to provide visitors with immediate assistance and improve user experience.",
+        tags: ["Skoolyst", "Tawk.to", "Customer Support"],
+        link: { label: "Visit Website", url: "https://www.skoolyst.com" }
     }
 
     /* 👇 Add your next entries below this line, comma-separated 👇

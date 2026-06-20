@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/skin/color-4.css" class="alternate-style" title="color-4" disabled>
     <link rel="stylesheet" href="css/skin/color-5.css" class="alternate-style" title="color-5" disabled>
     <link rel="stylesheet" href="css/style.switcher.css">
+    <link rel="stylesheet" href="css/schedule.css">
 
     <style>
         /* ===== MOBILE NAVBAR ===== */
@@ -104,6 +105,7 @@
                 <li><a href="#about"><i class="fa fa-user"></i> About</a></li>
                 <li><a href="#services"><i class="fa fa-list"></i> Service</a></li>
                 <li><a href="#portfolio"><i class="fa fa-briefcase"></i> Portfolio</a></li>
+                <li><a href="#schedule"><i class="fa fa-calendar-alt"></i> Schedule</a></li>
                 <li><a href="#contact"><i class="fa fa-comments"></i> Contact</a></li>
             </ul>
         </div>
@@ -121,6 +123,7 @@
                 <li><a href="#about"><i class="fa fa-user"></i>About</a></li>
                 <li><a href="#services"><i class="fa fa-list"></i>Service</a></li>
                 <li><a href="#portfolio"><i class="fa fa-briefcase"></i>Portfolio</a></li>
+                <li><a href="#schedule"><i class="fa fa-calendar-alt"></i>Schedule</a></li>
                 <li><a href="#contact"><i class="fa fa-comments"></i>Contact</a></li>
             </ul>
         </div>
@@ -614,6 +617,33 @@
                 </div>
             </section>
 
+            <!-- SCHEDULE -->
+            <section class="schedule section hidden-t" id="schedule">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-title padd-15"><h2>Schedule</h2></div>
+                    </div>
+                    <div class="row">
+                        <div class="schedule-heading padd-15"><h2>What I'm learning &amp; doing :</h2></div>
+                    </div>
+                    <div class="row">
+                        <div class="schedule-calendar-wrap padd-15">
+                            <div class="schedule-calendar shadow-dark" id="scheduleCalendar">
+                                <!-- Rendered by js/schedule.js using js/schedule-data.js -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SCHEDULE DETAILS MODAL -->
+            <div class="schedule-modal-overlay" id="scheduleModalOverlay" aria-hidden="true">
+                <div class="schedule-modal shadow-dark" role="dialog" aria-modal="true">
+                    <button type="button" class="schedule-modal-close" id="scheduleModalClose" aria-label="Close">&times;</button>
+                    <div id="scheduleModalContent"></div>
+                </div>
+            </div>
+
             <!-- CONTACT -->
             <section class="contact section" id="contact">
                 <div class="container">
@@ -708,6 +738,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     <script src="js/Script.js"></script>
     <script src="js/style-switcher.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/schedule-data.js"></script>
+    <script src="js/schedule.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {

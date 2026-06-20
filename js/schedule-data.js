@@ -68,8 +68,15 @@ const scheduleData = [
         description: "Implemented the Tawk.to live chat widget on the Skoolyst website to enhance customer support and engagement. Configured the widget's appearance and automated greetings to provide visitors with immediate assistance and improve user experience.",
         tags: ["Skoolyst", "Tawk.to", "Customer Support"],
         link: { label: "Visit Website", url: "https://www.skoolyst.com" }
+    },
+    {
+        date: "2026-06-22",
+        category: "Task",
+        title: "Tawk.to AI Assist Integrated",
+        description: "Set up Tawk.to live chat on the Skoolyst website with a custom-trained AI agent (Apollo). Configured a Pre-Chat form to capture visitor name, email, and phone, followed by a guided welcome flow with quick-reply options (What is SKOOLYST, How to find a school, School Owner / Parent-Student paths). Trained the agent on the website content and 12 FAQs so it can also answer general visitor questions automatically.",
+        tags: ["Skoolyst", "Tawk.to", "AI Assist", "Customer Support"],
+        link: { label: "Visit Website", url: "https://www.skoolyst.com" }
     }
-
     /* 👇 Add your next entries below this line, comma-separated 👇
 
     {

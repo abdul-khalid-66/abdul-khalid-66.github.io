@@ -38,8 +38,16 @@
 const scheduleData = [
 
     {
+        date: "2026-06-18",
+        category: "Task",
+        title: "MCQs for Skoolyst",
+        description: "Added multiple-choice questions (MCQs) to Skoolyst's for English Subject with 4 new topics Sentence Correction & Common Errors, Reading Comprehension, Subject-Verb Agreement, Conditional Sentences. These MCQs will help students practice and improve their English skills effectively.",
+        tags: ["New Post", "Social Media", "Skoolyst"],
+        link: { label: "Skoolyst MCQs", url: "https://skoolyst.com/en/quiz/subject/english" }
+    },
+    {
         date: "2026-06-19",
-        category: "Skoolyst Task",
+        category: "Task",
         title: "Skoolyst Social Media Content Creation",
         description: " Created/Scheduled engaging social media content for Skoolyst posts, to promote our brand and connect with our audience across Facebook , Instagram, and LinkedIn.",
         tags: ["New Post", "Social Media", "Skoolyst"],
@@ -55,7 +63,7 @@ const scheduleData = [
     },
     {
         date: "2026-06-21",
-        category: "Skoolyst Task",
+        category: "Task",
         title: "Tawk.to Chat Widget Setup",
         description: "Implemented the Tawk.to live chat widget on the Skoolyst website to enhance customer support and engagement. Configured the widget's appearance and automated greetings to provide visitors with immediate assistance and improve user experience.",
         tags: ["Skoolyst", "Tawk.to", "Customer Support"],

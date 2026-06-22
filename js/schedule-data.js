@@ -76,6 +76,14 @@ const scheduleData = [
         description: "Set up Tawk.to live chat on the Skoolyst website with a custom-trained AI agent (Apollo). Configured a Pre-Chat form to capture visitor name, email, and phone, followed by a guided welcome flow with quick-reply options (What is SKOOLYST, How to find a school, School Owner / Parent-Student paths). Trained the agent on the website content and 12 FAQs so it can also answer general visitor questions automatically.",
         tags: ["Skoolyst", "Tawk.to", "AI Assist", "Customer Support"],
         link: { label: "Visit Website", url: "https://www.skoolyst.com" }
+    },
+    {
+        date: "2026-06-23",
+        category: "Experience",
+        title: "Skoolyst digital marketing campaign",
+        description: "Worked on Skoolyst's digital marketing campaign by creating promotional video scripts, social media posts, and branding content aimed at helping schools reach more parents and increase admissions.",
+        tags: ["Digital Marketing","Skoolyst Branding","Admissions","Education"]
+
     }
     /* 👇 Add your next entries below this line, comma-separated 👇
 

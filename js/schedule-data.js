@@ -84,6 +84,20 @@ const scheduleData = [
         description: "Worked on Skoolyst's digital marketing campaign by creating promotional video scripts, social media posts, and branding content aimed at helping schools reach more parents and increase admissions.",
         tags: ["Digital Marketing","Skoolyst Branding","Admissions","Education"]
 
+    },
+    {
+        date: "2026-06-24",
+        category: "Experience",
+        title: "Skoolyst digital marketing campaign",
+        description: "Worked on Skoolyst's digital marketing campaign by creating promotional video scripts, social media posts, and branding content aimed at helping schools reach more parents and increase admissions.",
+        tags: ["Digital Marketing","Skoolyst Branding","Admissions","Education"]
+    },
+    {
+        date: "2026-06-24",
+        category: "Task",
+        title: "Legalconsultant app Fixes",
+        description: "Fixes for the legalconsultant application 404 page on lawyers uploaded file is now fixed and the file is now downloadable. Also, also file uploaded to custom directory.",
+        tags: ["Digital Marketing","Skoolyst Branding","Admissions","Education"]
     }
     /* 👇 Add your next entries below this line, comma-separated 👇
 

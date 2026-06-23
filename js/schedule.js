@@ -117,7 +117,8 @@ $(function () {
                         dotsInner += '<span class="schedule-cal-more">+' + (items.length - 3) + '</span>';
                     }
                     dotsHtml = '<span class="schedule-cal-dots">' + dotsInner + '</span>';
-                    labelHtml = '<span class="event-label">' + escapeHtml(items[0].title) + '</span>';
+                    // labelHtml = '<span class="event-label">' + escapeHtml(items[0].title) + '</span>';
+                    labelHtml = '<span class="event-label"> Click to view</span>';
                 }
 
                 cellsHtml += '<div class="' + cls + '" data-date="' + dateKey + '">' +

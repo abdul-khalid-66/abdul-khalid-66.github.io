@@ -95,9 +95,10 @@ const scheduleData = [
     {
         date: "2026-06-24",
         category: "Task",
-        title: "Legalconsultant app Fixes",
+        title: "Legal-consultant app Fixes",
         description: "Fixes for the legalconsultant application 404 page on lawyers uploaded file is now fixed and the file is now downloadable. Also, also file uploaded to custom directory.",
-        tags: ["Digital Marketing","Skoolyst Branding","Admissions","Education"]
+        tags: ["Digital Marketing","Skoolyst Branding","Admissions","Education"],
+        link: { label: "Visit Website", url: "https://lawyers.saifpindiautos.com/" }
     }
     /* 👇 Add your next entries below this line, comma-separated 👇
 

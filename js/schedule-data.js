@@ -99,6 +99,14 @@ const scheduleData = [
         description: "Fixes for the legalconsultant application 404 page on lawyers uploaded file is now fixed and the file is now downloadable. Also, also file uploaded to custom directory.",
         tags: ["Digital Marketing","Skoolyst Branding","Admissions","Education"],
         link: { label: "Visit Website", url: "https://lawyers.saifpindiautos.com/" }
+    },
+    {
+        date: "2026-06-25",
+        category: "Task",
+        title: "Skoolyst Localization issue fixes",
+        description: "Skoolyst Localization issue fixed for the urdu language switching was showing 404 page error on the website. Now the issue is fixed and also pushed the changes to the production server. Second I added new schools to the skoolyst database for the parents to find the schools in their city. The schools added are The Vantage - A British Curriculum School.",
+        tags: ["Bug Fixing","School Registered"],
+        link: { label: "Visit Website", url: "https://skoolyst.com/" }
     }
     /* 👇 Add your next entries below this line, comma-separated 👇
 
